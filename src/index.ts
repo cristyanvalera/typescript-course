@@ -115,7 +115,7 @@ class Person implements PersonInterface {
     //            y desde las subclases
     id: number
     name: string
-    
+
     constructor(id: number, name: string) {
         this.id = id
         this.name = name
@@ -141,3 +141,17 @@ class Employee extends Person {
 const emp = new Employee(3, "Juan", "Dev")
 console.log(emp.position)
 console.log(emp.register())
+
+// Generics
+function getArray<T>(items: T[]): T[] {
+    return new Array().concat(items)
+}
+
+let numArray = getArray<number>([1, 2, 3, 4])
+let strArray = getArray<string>([
+    'Cristyan', 'Yusmely', 'Crismely',
+])
+
+strArray.push('Hola')
+
+console.log(numArray, strArray)
